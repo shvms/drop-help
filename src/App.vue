@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <HeroContainer />
+
     <div class="container">
       <router-view :database="database" />
     </div>
@@ -8,9 +10,13 @@
 
 <script>
 import db from "./database.json";
+import HeroContainer from "@/components/HeroContainer";
 
 export default {
   name: "App",
+  components: {
+    HeroContainer,
+  },
   data() {
     return {
       database: db,
@@ -18,5 +24,3 @@ export default {
   },
 };
 </script>
-
-<style></style>
