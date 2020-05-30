@@ -67,7 +67,7 @@ export default {
   mounted() {
     this.jssearch.addIndex("title");
     this.jssearch.addIndex("description");
-    this.jssearch.addIndex("location.address");
+    this.jssearch.addIndex(["location", "address"]);
     this.jssearch.addDocuments(this.database);
   },
 };
