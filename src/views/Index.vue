@@ -1,9 +1,9 @@
 <template>
   <div>
-    <SearchBar />
+    <SearchBar @search="fuzzySearch" />
 
     <div class="row row-cols-1 row-cols-md-3">
-      <div class="col mb-4" v-for="org in database" :key="org.id">
+      <div class="col mb-4" v-for="org in actualDB" :key="org.id">
         <div class="card h-100">
           <div class="card-body">
             <h5 class="card-title">{{ org.title }}</h5>
@@ -34,6 +34,7 @@
 
 <script>
 import SearchBar from "@/components/SearchBar";
+import * as JsSearch from "js-search";
 
 export default {
   name: "Index",
@@ -45,6 +46,29 @@ export default {
       type: Array,
       required: true,
     },
+  },
+  data() {
+    return {
+      results: this.database,
+      jssearch: new JsSearch.Search("id"),
+    };
+  },
+  methods: {
+    fuzzySearch(needle) {
+      this.results = this.jssearch.search(needle);
+      console.log(this.results.length);
+    },
+  },
+  computed: {
+    actualDB() {
+      return this.results.length > 0 ? this.results : this.database;
+    },
+  },
+  mounted() {
+    this.jssearch.addIndex("title");
+    this.jssearch.addIndex("description");
+    this.jssearch.addIndex("location.address");
+    this.jssearch.addDocuments(this.database);
   },
 };
 </script>

@@ -6,6 +6,8 @@
         type="email"
         placeholder="Search"
         class="form-control form-control-underlined border-success"
+        v-model="needle"
+        @keyup="keyup"
       />
     </div>
   </form>
@@ -14,5 +16,15 @@
 <script>
 export default {
   name: "SearchBar",
+  data() {
+    return {
+      needle: null,
+    };
+  },
+  methods: {
+    keyup() {
+      this.$emit("search", this.needle);
+    },
+  },
 };
 </script>
