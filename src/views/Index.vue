@@ -4,9 +4,11 @@
 
     <div class="row row-cols-1 row-cols-md-3">
       <div class="col mb-4" v-for="org in actualDB" :key="org.id">
-        <div class="card h-100">
+        <div class="card h-100 shadow">
           <div class="card-body">
-            <h5 class="card-title">{{ org.title }}</h5>
+            <h5 class="card-title" style="font-family: 'Poppins', sans-serif;">
+              {{ org.title }}
+            </h5>
             <p class="card-text">
               <span v-for="(concern, i) in org.concerns" :key="i">
                 {{ concern.topic }}
@@ -97,5 +99,22 @@ export default {
   font-size: 0.95rem;
   color: #aaa;
   font-style: italic;
+}
+
+.card {
+  transition: 0.3s ease all;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s ease all;
+}
+
+* {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.display-3 {
+  font-family: "Poppins", sans-serif;
 }
 </style>

@@ -4,16 +4,20 @@
       <div class="row">
         <div class="col-sm h-100">
           <blockquote class="blockquote">
-            <p class="mb-0">DropHelp</p>
+            <h4 class="mb-0" style="font-family: 'Poppins', sans-serif;">
+              DropHelp
+            </h4>
             <small class="text-muted">Trying to make the voices go far.</small>
           </blockquote>
         </div>
         <div class="col-sm h-100 footer-actions">
           <div class="row" style="flex-direction: column">
             <div class="col my-1">
-              <button class="btn btn-light">
-                <font-awesome-icon :icon="['fab', 'github']" />GitHub
-              </button>
+              <a href="https://github.com/shvms/drop-help">
+                <button class="btn btn-light">
+                  <font-awesome-icon :icon="['fab', 'github']" />GitHub
+                </button></a
+              >
             </div>
             <div class="col my-1">
               <button class="btn btn-light">Contributors</button>
