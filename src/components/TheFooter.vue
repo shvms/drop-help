@@ -11,7 +11,9 @@
         <div class="col-sm h-100 footer-actions">
           <div class="row" style="flex-direction: column">
             <div class="col my-1">
-              <button class="btn btn-light">GitHub</button>
+              <button class="btn btn-light">
+                <font-awesome-icon :icon="['fab', 'github']" />GitHub
+              </button>
             </div>
             <div class="col my-1">
               <button class="btn btn-light">Contributors</button>

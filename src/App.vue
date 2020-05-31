@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-if="database">
     <HeroContainer />
 
     <div class="container">
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import db from "./database.json";
+import axios from "axios";
 import HeroContainer from "@/components/HeroContainer";
 import TheFooter from "@/components/TheFooter";
 
@@ -23,8 +23,14 @@ export default {
   },
   data() {
     return {
-      database: db,
+      database: null,
     };
+  },
+  mounted() {
+    this.loading = true;
+    axios.get("http://api-drop-help.herokuapp.com/v1/list").then((res) => {
+      this.database = res.data;
+    });
   },
 };
 </script>

@@ -8,9 +8,17 @@
           <div class="card-body">
             <h5 class="card-title">{{ org.title }}</h5>
             <p class="card-text">
-              This is a longer card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
+              <span v-for="(concern, i) in org.concerns" :key="i">
+                {{ concern.topic }}
+                <span v-if="i != org.concerns.length - 1">&bull;</span>
+              </span>
+            </p>
+            <p class="card-text text-muted">
+              Locations Serving:
+              <span v-for="(loc, i) in org.locationServingAt" :key="i">
+                {{ loc.city }}
+                <span v-if="i != org.locationServingAt.length - 1">&bull;</span>
+              </span>
             </p>
             <button type="button" class="btn btn-dark mr-1">
               Pay via GPay
@@ -66,8 +74,8 @@ export default {
   },
   mounted() {
     this.jssearch.addIndex("title");
-    this.jssearch.addIndex("description");
-    this.jssearch.addIndex(["location", "address"]);
+    this.jssearch.addIndex(["locationServingAt", "city"]);
+    this.jssearch.addIndex(["concerns", "tags"]);
     this.jssearch.addDocuments(this.database);
   },
 };
