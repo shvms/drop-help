@@ -28,7 +28,7 @@ export default {
   },
   mounted() {
     this.loading = true;
-    axios.get("http://api-drop-help.herokuapp.com/v1/list").then((res) => {
+    axios.get(`${process.env.VUE_APP_API_BASE_URL}/v1/list`).then((res) => {
       this.database = res.data;
     });
   },

@@ -29,7 +29,6 @@
 
 <script>
 import axios from "axios";
-import apiKeys from "@/constants/apiConfig";
 import OrgIntro from "@/components/OrgIntro";
 import LocationServing from "@/components/LocationServing";
 import PocList from "@/components/PocList";
@@ -47,7 +46,7 @@ export default {
   },
   data() {
     return {
-      apiKey: apiKeys.googleEmbedApiKey,
+      apiKey: process.env.VUE_APP_GOOGLE_MAP_EMBED_KEY,
       organisation: null,
     };
   },
@@ -63,7 +62,7 @@ export default {
   },
   mounted() {
     axios
-      .get(`https://api-drop-help.herokuapp.com/v1/details/${this.slug}`)
+      .get(`${process.env.VUE_APP_API_BASE_URL}/v1/details/${this.slug}`)
       .then((res) => {
         this.organisation = res.data;
       });
