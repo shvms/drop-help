@@ -66,6 +66,6 @@ export default {
 }
 
 .display-3 {
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto Mono", sans-serif;
 }
 </style>

@@ -3,7 +3,7 @@
     <div class="col mb-4" v-for="org in orgs" :key="org.id">
       <div class="card h-100 shadow">
         <div class="card-body">
-          <h5 class="card-title" style="font-family: 'Poppins', sans-serif;">{{ org.title }}</h5>
+          <h5 class="card-title" style="font-family: 'Roboto Mono', sans-serif;">{{ org.title }}</h5>
           <p class="card-text">
             <span v-for="(concern, i) in org.concerns" :key="i">
               {{ concern.topic }}

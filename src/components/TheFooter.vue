@@ -1,42 +1,33 @@
 <template>
   <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm h-100">
-          <blockquote class="blockquote">
-            <h4 class="mb-0" style="font-family: 'Poppins', sans-serif;">DropHelp</h4>
-            <small class="text-muted">Trying to make the voices go far.</small>
-          </blockquote>
-        </div>
-        <div class="col-sm h-100 footer-actions">
-          <a href="https://github.com/shvms/drop-help" class="button github">
-            <font-awesome-icon class="mt-1 mr-2" :icon="['fab', 'github']" />Contribute On GitHub
-          </a>
-          <a href="#" class="button database">
-            <font-awesome-icon class="mt-1 mr-2" :icon="['fas', 'database']" />Database
-          </a>
+    <div class="container-fluid mx-auto">
+      <div class="text my-3">
+        <router-link :to="{'name': 'Index'}">
+          <h4 class="mb-0 header">DropHelp</h4>
+        </router-link>
+        <small class="text-muted subtitle">Trying to make the voices go far.</small>
+      </div>
 
-          <a href="#" class="button twitter">
-            <font-awesome-icon class="mt-1 mr-2" :icon="['fab', 'twitter']" />Follow to get updates
-          </a>
-        </div>
-        <div class="col-sm h-100">
-          <div class="row" style="flex-direction: column">
-            <div class="col">
-              <p class="lead">Want to add to the list?</p>
-            </div>
-          </div>
-          <div class="row" style="flex-direction: column">
-            <div class="col">
-              <button class="btn btn-link">Pull request on GitHub</button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col my-1">
-              <button class="btn btn-link">Mail us!</button>
-            </div>
-          </div>
-        </div>
+      <a href="https://github.com/shvms/drop-help" class="button github">
+        <font-awesome-icon class="mt-1 mr-2" :icon="['fab', 'github']" />Contribute On GitHub
+      </a>
+
+      <a href="#" class="button database">
+        <font-awesome-icon class="mt-1 mr-2" :icon="['fas', 'database']" />Open Database
+      </a>
+
+      <a href="#" class="button mail">
+        <font-awesome-icon class="mt-1 mr-2" :icon="['fas', 'envelope']" />add to the list
+      </a>
+
+      <a href="#" class="button twitter">
+        <font-awesome-icon class="mt-1 mr-2" :icon="['fab', 'twitter']" />Follow to get updates
+      </a>
+
+      <div class="bottom-link">
+        <router-link :to="{'name': 'About'}">about</router-link>
+        <span class="text-muted mx-2">&bull;</span>
+        <router-link :to="{'name': 'Faq'}">faq</router-link>
       </div>
     </div>
   </footer>
@@ -50,19 +41,28 @@ export default {
 
 <style scoped>
 .footer {
-  background-color: #eff8f5;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-  box-sizing: border-box;
-  width: 100%;
-  text-align: left;
-  padding: 55px 50px;
   margin-top: 80px;
+  padding-bottom: 20px;
+  background: #eff8f5;
 }
 
-.footer-actions {
+.container-fluid {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.text {
+  text-align: center;
+}
+
+.header {
+  font-family: "Roboto Mono", sans-serif;
+}
+
+.subtitle {
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 .button {
@@ -112,5 +112,18 @@ export default {
 
 .twitter:hover {
   background: #4fceff;
+}
+
+.mail {
+  background: #c7362c;
+  color: #fff;
+}
+
+.mail:hover {
+  background: #e65c53;
+}
+
+.bottom-link a {
+  font-family: "Roboto Mono", sans-serif;
 }
 </style>
